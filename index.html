@@ -3,11 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="map.css">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
     <title>Bike Paths</title>
 </head>
 <body>
-    <h1>🚴🏼‍♀️ Bike Paths</h1>
+    <header>
+        <h1 style="flex-grow: 1;">🚴🏼‍♀️ Bike Paths</h1>
+        <label style="margin-left: auto;">
+            Filter by time:
+            <input type="range" id="time-slider" min="-1" max="1440" value="-1">
+            <time id="selected-time" style="display: block;"></time>
+            <em id="any-time" style="display: block; color: gray; font-style: italic;">(any time)</em>
+        </label>
+    </header>
+    <div id="map">
+        <svg></svg>
+    </div>
+    <div class="legend" style="display: flex; gap: 1px; margin-block: 1em;">
+        <div style="flex: 1; text-align: left; padding: 0.5em 1em;">More departures</div>
+        <div style="flex: 1; text-align: center; padding: 0.5em 1em;">Balanced</div>
+        <div style="flex: 1; text-align: right; padding: 0.5em 1em;">More arrivals</div>
+    </div>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <script src="map.js"></script>
 </body>
 </html>

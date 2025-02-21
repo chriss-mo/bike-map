@@ -9,3 +9,9 @@ body {
     padding: 1em;
   }
 
+header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: baseline; 
+    gap: 40em;
+}
