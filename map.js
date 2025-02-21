@@ -138,12 +138,19 @@ function updateData() {
     const radiusScale = d3
         .scaleSqrt()
         .domain([0, d3.max(filteredStations, (d) => d.totalTraffic)])
-        .range(timeFilter === -1 ? [0, 25] : [3, 40]);
+        .range(timeFilter === -1 ? [0, 25] : [3, 30]);
 
     const circles = svg.selectAll('circle')
         .data(filteredStations, d => d.short_name)
-        .style("--departure-ratio", d => stationFlow(d.departures / d.totalTraffic)) 
+        .style("--departure-ratio", d => stationFlow(d.departures / d.totalTraffic))
+        .each(function(d) {
+            d3.select(this)
+              .append('title')
+              .text(`${d.totalTraffic} trips (${d.departures} departures, ${d.arrivals} arrivals)`);
+        })
         ;
+
+    circles.exit().remove();
 
     circles.enter()
         .append('circle')
@@ -157,9 +164,8 @@ function updateData() {
             d3.select(this)
               .select('title')
               .text(`${d.totalTraffic} trips (${d.departures} departures, ${d.arrivals} arrivals)`);
-        });
-
-    circles.exit().remove();
+        })
+        ;
 
     function updatePositions() {
         circles

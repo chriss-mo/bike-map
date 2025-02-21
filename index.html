@@ -9,11 +9,11 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
-    <title>Bike Paths</title>
+    <title>Good Will Biking</title>
 </head>
 <body>
     <header>
-        <h1 style="flex-grow: 1;">🚴🏼‍♀️ Bike Paths</h1>
+        <h1 style="flex-grow: 1;">Good Will Biking 🚴🏼‍♀️</h1>
         <label style="margin-left: auto;">
             Filter by time:
             <input type="range" id="time-slider" min="-1" max="1440" value="-1">
@@ -21,6 +21,7 @@
             <em id="any-time" style="display: block; color: gray; font-style: italic;">(any time)</em>
         </label>
     </header>
+    <h3 style="color: rgb(100, 100, 100);"> Visualizing Bike Paths and Rental Activity in Boston </h3>
     <div id="map">
         <svg></svg>
     </div>
